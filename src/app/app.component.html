@@ -1,0 +1,116 @@
+<mat-sidenav-container autosize>
+    <mat-sidenav #matSidenav mode="over">
+        <mat-nav-list>
+            <mat-nav-list>
+                <mat-list-item>Home</mat-list-item>
+            </mat-nav-list>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" #toolbar>
+            <mat-toolbar-row>
+
+                <button mat-icon-button
+                        (click)="main.classList.toggle('main-opened'); toolbar._elementRef.nativeElement.classList.toggle('toolbar-opened')">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <!--
+                              <button mat-icon-button (click)="matSidenav.toggle()">
+                                  <mat-icon>menu</mat-icon>
+                              </button>-->
+
+                <ng-container *ngIf="searchOpened; else defaultToolbar">
+                    <form>
+                        <input type="text" placeholder="Ara" class="search-input">
+                        <mat-icon>search</mat-icon>
+                    </form>
+                </ng-container>
+
+                <ng-template #defaultToolbar>
+                    <span class="app-title">Filmmodu</span>
+                    <button mat-icon-button>
+                        <mat-icon>tune</mat-icon>
+                    </button>
+                   <!-- <button mat-icon-button (click)="searchOpened = true; main.classList.toggle('main-opened');">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                    <button mat-icon-button class="avatar-button">
+                        <img class="avatar" src="../assets/avatar.png" alt="">
+                    </button>-->
+                </ng-template>
+
+
+            </mat-toolbar-row>
+            <!--<img class="avatar" src="../assets/avatar.png" alt="">-->
+            <mat-toolbar-row>
+                <!-- <div>
+                     <div class="filter-title">Brands</div>
+                     <mat-chip-list multiple selectable>
+                         <mat-chip color="primary">Aksiyon</mat-chip>
+                         <mat-chip color="primary">Komedi</mat-chip>
+                         <mat-chip color="primary">Suç</mat-chip>
+                         <mat-chip color="primary">Drama</mat-chip>
+                         <mat-chip color="primary">Fantazi</mat-chip>
+                         <mat-chip color="primary">Tarih</mat-chip>
+                         <mat-chip color="primary">Korku</mat-chip>
+                         <mat-chip color="primary">Müzikal</mat-chip>
+                         <mat-chip color="primary">Romantik</mat-chip>
+                         <mat-chip color="primary">Bilim kurgu</mat-chip>
+                         <mat-chip color="primary">Gerilim</mat-chip>
+                         <mat-chip color="primary">Macera</mat-chip>
+                         <mat-chip color="primary">Marvel Sinematik Evreni</mat-chip>
+                         <mat-chip color="primary">Savaş</mat-chip>
+                         <mat-chip color="primary">Disney</mat-chip>
+                     </mat-chip-list>
+                 </div>-->
+
+
+                  <mat-nav-list>
+                      <a mat-list-item routerLink="/" routerLinkActive="active">
+                          <mat-icon>home</mat-icon>
+                          <span>Ana sayfa</span>
+                      </a>
+
+                      <a mat-list-item routerLink="/watchlist" routerLinkActive="active">
+                          <mat-icon>bookmark</mat-icon>
+                          <span>İzleme listesi</span>
+                      </a>
+                      <a mat-list-item routerLink="/bookmarks" routerLinkActive="active">
+                          <mat-icon>download</mat-icon>
+                          <span>İndirilenler</span>
+                      </a>
+                  </mat-nav-list>
+
+            </mat-toolbar-row>
+
+        </mat-toolbar>
+
+
+        <main class="mat-elevation-z1" #main>
+            <router-outlet></router-outlet>
+        </main>
+
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<header>
+    <div class="start">
+        <a routerLink="/" class="logo">
+            <img src="https://logos-world.net/wp-content/uploads/2021/02/Disney-Logo.png" alt="">
+        </a>
+        <div class="menu">
+            <a routerLink="/" class="active">Ana sayfa</a>
+            <a routerLink="search">Ara</a>
+            <a routerLink="watchlist">İzleme listem</a>
+            <a routerLink="originals">Originals</a>
+            <a routerLink="movies">Filmler</a>
+            <a routerLink="series">Diziler</a>
+        </div>
+    </div>
+    <div class="center"></div>
+    <div class="end">
+        <img src="../assets/avatar.png" alt="" class="avatar">
+    </div>
+</header>-->
+
